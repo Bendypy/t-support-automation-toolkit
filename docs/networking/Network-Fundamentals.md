@@ -1,35 +1,63 @@
-# 🌐 Netwerk Concepten & IT-Infrastructuur
-*(Networking Concepts & Infrastructure / المفاهيم الأساسية للشبكات والبنية التحتية)*
+# 🌐 Netwerk Architectuur & Diagnostiek
+*(Network Architecture & Diagnostics / الهندسة المعمارية للشبكات والتشخيص)*
 
 **Doel (الهدف):** 
-Een diepgaande kennisbank over hoe netwerken fysiek en logisch zijn opgebouwd, bedoeld als naslagwerk voor de BPV-stage en IT-architectuur. (مرجع هندسي عميق لفهم كيفية بناء الشبكات فيزيائياً ومنطقياً، للرجوع إليه أثناء التدريب العملي).
+Een complete naslaggids voor netwerkcomponenten, IP-configuraties en troubleshooting (Ping, Tracert, IPConfig) voor de BPV-stage. (دليل مرجعي كامل لمكونات الشبكات، إعدادات الـ IP، واكتشاف الأخطاء لحل مشاكل التدريب العملي).
 
 ---
 
-## 🏗️ THEMA 1: Netwerk Infrastructuur (البنية التحتية الفيزيائية)
-De fysieke ruggengraat van elk bedrijf. Zonder goede bekabeling faalt de rest van de IT. (العمود الفقري لأي شركة. بدون بنية تحتية سليمة، تنهار كل الأنظمة الأخرى).
+## 🏗️ THEMA 1: Infrastructuur & Bekabeling (البنية التحتية)
 
-### 1. De Patchkast (خزانة الشبكات المركزية)
-* **Het Patchpaneel:** Dit is een passief doorgeefluik. Kabels uit de muur (Wall Outlets) van kantoren komen hierin samen. Het organiseert de chaos van kabels. (لوحة التوزيع هي نقطة تجميع سلبية، تأتي إليها الكابلات الممتدة داخل جدران المبنى لتنظيمها قبل ربطها بالأجهزة الذكية).
-* **De Switch (المحول):** Het actieve hart van het LAN. Verbindt alle apparaten met elkaar met behulp van korte patchkabels vanaf het patchpaneel. 
+### 1. Kabels en Connectoren (الكابلات والموصلات)
+* **UTP-kabel:** Bevat **8 aders** verdeeld over **4 getwiste paren** (أربع أزواج مجدولة لتقليل التشويش)[span_2](start_span)[span_2](end_span). De standaard stekker is de **RJ45**[span_3](start_span)[span_3](end_span).
+  * **Straight-through:** De moderne standaard voor verbindingen tussen PC en Switch. (الكابل العادي لربط الأجهزة بالمحولات)[span_4](start_span)[span_4](end_span).
+  * **Cross-over:** Historisch gebruikt voor directe PC-tot-PC verbindingen (تاريخياً كان يستخدم لربط جهازين معاً مباشرة)[span_5](start_span)[span_5](end_span).
+* **Glasvezel (Fiber):** Werkt met licht in plaats van stroom (يعمل بالضوء). Het is extreem snel, ongevoelig voor storingen, maar kwetsbaar bij scherp buigen (سريع جداً ومقاوم للتشويش، لكنه ينكسر إذا تم ثنيه بقوة)[span_6](start_span)[span_6](end_span).
 
-### 2. Bekabeling (أنواع الكابلات)
-* **UTP (Unshielded Twisted Pair):** Koperkabels (Copper). Gebruikt voor werkplekken binnen een gebouw. Maximale lengte is 100 meter. (كابلات النحاس المجدولة، ممتازة للمسافات القصيرة داخل نفس المبنى).
-* **Glasvezel (Fiber Optic):** Gebruikt licht in plaats van elektriciteit. Extreem snel, immuun voor storingen, en gebruikt om switches of gebouwen over lange afstanden te verbinden. (الألياف الضوئية، تنقل البيانات عبر الضوء. نستخدمها لربط السيرفرات ببعضها أو ربط مبنيين لتجنب فقدان الإشارة).
+### 2. De Patchkast (خزانة الشبكة)
+* **Cable Management:** Nette kabels en labels in de patchkast versnellen het onderhoud en het oplossen van storingen. (ترتيب الكابلات ووضع الملصقات يسرع من اكتشاف الأعطال وحلها)[span_7](start_span)[span_7](end_span).
+* **De Route:** Een goede IT'er volgt de kabel van de **Outlet (muur)** ➔ **Bekabeling (gebouw)** ➔ **Patchpanel** ➔ **Switch**[span_8](start_span)[span_8](end_span).
 
 ---
 
-## 🧠 THEMA 2: Apparatuur & Logica (الأجهزة والمنطق الشبكي)
-Hoe apparaten beslissen waar data heen moet. (كيف تقرر الأجهزة مسار البيانات).
+## 🧠 THEMA 2: Apparatuur & Logica (الأجهزة والمنطق)
 
-### 1. Hub vs. Switch (الفرق بين الغباء والذكاء)
-* **De Hub (Verouderd/Obsolete):** Werkt op **Laag 1**. Hij is 'dom' en stuurt inkomende data simpelweg naar *alle* poorten (Broadcast). Dit veroorzaakt netwerkbotsingen (Collisions).
-* **De Switch (Huidige standaard):** Werkt op **Laag 2**. Hij is 'slim' en kijkt naar het **MAC-adres** (het fysieke adres van de netwerkkaart). Hij stuurt de data *alleen* naar de poort waar de ontvanger zit. (المحول ذكي لأنه يمتلك جدولاً بأسماء الأجهزة (MAC Table) ويرسل البيانات للمستلم المعني فقط، مما يوفر سرعة هائلة وأماناً).
+### 1. Netwerkkaarten en Adressen
+* **NIC (Network Interface Card):** De netwerkkaart (bekabeld of wifi) die data verzendt en ontvangt (كارت الشبكة الذي يرسل ويستقبل البيانات)[span_9](start_span)[span_9](end_span).
+* **MAC-adres vs. IP-adres:**
+  * **MAC-adres:** Fysiek adres (bijv. `08:00:27:CE:75:FE`). Werkt op Laag 2. Wordt door **Switches** gebruikt voor verkeer *binnen* het LAN[span_10](start_span)[span_10](end_span).
+  * **IP-adres:** Logisch adres (bijv. `192.168.1.34`). Werkt op Laag 3. Wordt door **Routers** gebruikt voor communicatie *tussen* netwerken[span_11](start_span)[span_11](end_span).
 
-### 2. De Router & Default Gateway (الموجه والبوابة الافتراضية)
-* Werkt op **Laag 3**. Een router verbindt verschillende netwerken met elkaar (bijv. jouw LAN met het internet WAN).
-* **De Default Gateway:** Dit is het IP-adres van de router (bijv. `172.16.0.1`). Als een PC data naar Google wil sturen, en ziet dat Google niet in het lokale netwerk zit, gooit hij de data naar de "Gateway" (de router), die het pad naar buiten kent. (البوابة الافتراضية هي عنوان الروتر. أي بيانات تخرج من شبكتك الداخلية إلى الإنترنت يجب أن تمر عبر هذه البوابة).
+### 2. Switch vs. Hub vs. Router
+* **Hub:** Dom apparaat. Stuurt ontvangen data naar *alle* poorten (غبي، يرسل البيانات لكل المنافذ)[span_12](start_span)[span_12](end_span).
+* **Switch:** Slim apparaat. Stuurt frames naar de juiste poort op basis van het **MAC-adres** (ذكي، يرسل البيانات للمنفذ الصحيح بناءً على عنوان الـ MAC)[span_13](start_span)[span_13](end_span).
+* **Router:** Stuurt pakketten tussen verschillende netwerken (bijv. van LAN naar WAN). (يربط بين شبكتك الداخلية والإنترنت)[span_14](start_span)[span_14](end_span).
 
-### 3. De Firewall (جدار الحماية)
-* De beveiliger van het netwerk. Hij inspecteert al het inkomende en uitgaande verkeer (Data Packets) en blokkeert hackers of ongewenste poorten op basis van veiligheidsregels (Access Control Lists). (شرطي المرور الأمني؛ يفحص كل حزمة بيانات ويقرر هل يُسمح لها بالدخول لل
-*
+---
+
+## 📡 THEMA 3: IP-Configuratie (إعدادات العناوين)
+
+### 1. IPv4, IPv6 en NAT
+* **IPv4:** 32 bits lang (ongeveer 4,3 miljard adressen)[span_15](start_span)[span_15](end_span).
+* **IPv6:** 128 bits lang (veel grotere adresruimte)[span_16](start_span)[span_16](end_span).
+* **Privéranges (IPv4):** `10.0.0.0/8`, `172.16.0.0/12`, en `192.168.0.0/16`[span_17](start_span)[span_17](end_span). Deze adressen zijn onzichtbaar op het internet.
+* **NAT (Network Address Translation):** Vertaalt de privé IP-adressen van het LAN naar één publiek IP-adres op de router om op internet te surfen (التقنية التي تترجم عناوين أجهزة الشركة الداخلية إلى عنوان واحد خارجي للإنترنت)[span_18](start_span)[span_18](end_span).
+
+### 2. Subnetting en Services
+* **Subnetmasker:** Bepaalt welk deel van het IP-adres het **Network ID** (Netwerk) is, en welk deel de **Host ID** (Apparaat) is (يحدد أي جزء من العنوان يمثل الشبكة، وأي جزء يمثل الجهاز)[span_19](start_span)[span_19](end_span).
+* **DHCP:** Geeft apparaten automatisch een IP-adres, subnetmasker, default gateway en DNS-server (يوزع العناوين والإعدادات آلياً)[span_20](start_span)[span_20](end_span).
+* **DNS:** Vertaalt namen (zoals *ict-flex.nl*) naar IP-adressen (zoals *77.72.149.240*) (يحول أسماء المواقع إلى أرقام IP)[span_21](start_span)[span_21](end_span).
+
+---
+
+## 🛠️ THEMA 4: Troubleshooting Tools (أدوات التشخيص للمهندسين)
+*(Gebruik de Command Prompt (CMD) of PowerShell)*
+
+1. **`ipconfig /all` (Windows) of `ip a` (Linux):** 
+   Laat de huidige netwerkconfiguratie zien (IP, Subnet, Gateway, MAC)[span_22](start_span)[span_22](end_span).
+2. **`ping 8.8.8.8`:** 
+   Test bereikbaarheid, reactietijd (ms) en pakketverlies (يختبر الوصول للهدف، ويقيس سرعة الاستجابة وفقدان البيانات)[span_23](start_span)[span_23](end_span).
+3. **`tracert ict-flex.nl` (Trace Route):** 
+   Toont via welke routers (hops) een pakket reist. Perfect om te zien *waar* de verbinding precies wegvalt (يظهر لك كل الروترات التي تمر بها البيانات، ممتاز لمعرفة أين انقطع الاتصال بالضبط)[span_24](start_span)[span_24](end_span).
+4. **Het OSI-Model in Troubleshooting:**
+   Als er geen "Link-lampje" brandt op de netwerkkaart, controleer je Laag 1 (Fysiek / Kabel). Als er een verkeerd IP-adres is, controleer je Laag 3 (Netwerk / DHCP)[span_25](start_span)[span_25](end_span).
