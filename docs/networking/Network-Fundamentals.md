@@ -1,92 +1,35 @@
-# 🌐 Netwerk Basis & Examen Kennisbank
-*(Networking Fundamentals & Exam Knowledge Base / أساسيات الشبكات ومرجع الامتحانات)*
+# 🌐 Netwerk Concepten & IT-Infrastructuur
+*(Networking Concepts & Infrastructure / المفاهيم الأساسية للشبكات والبنية التحتية)*
 
 **Doel (الهدف):** 
-Een snelle referentie voor netwerkconcepten, hardware, en het OSI-model. (مرجع سريع لمفاهيم الشبكات، العتاد، ونموذج OSI لحل المشاكل الميدانية).
+Een diepgaande kennisbank over hoe netwerken fysiek en logisch zijn opgebouwd, bedoeld als naslagwerk voor de BPV-stage en IT-architectuur. (مرجع هندسي عميق لفهم كيفية بناء الشبكات فيزيائياً ومنطقياً، للرجوع إليه أثناء التدريب العملي).
 
 ---
 
-## 🏗️ DEEL 1: Netwerk Hardware & Infrastructuur (العتاد والبنية التحتية)
+## 🏗️ THEMA 1: Netwerk Infrastructuur (البنية التحتية الفيزيائية)
+De fysieke ruggengraat van elk bedrijf. Zonder goede bekabeling faalt de rest van de IT. (العمود الفقري لأي شركة. بدون بنية تحتية سليمة، تنهار كل الأنظمة الأخرى).
 
-### 1. Waar lopen de kabels die achter een outlet (muurpoort) zitten heen?
-* **Antwoord (الإجابة):** Naar het **Patchpaneel** in de Patchkast (Serverruimte), en vanaf daar met een korte kabel naar de **Switch**.
-* **Why? (لماذا؟):** 
-  * **EN:** Wall outlets route cables through the building directly to the patch panel to keep wiring organized before connecting to the active switch.
-  * **AR:** مقبس الحائط يمرر الكابل داخل الجدران ليصل إلى لوحة التوزيع (Patch panel) في خزانة السيرفرات، ومن هناك نربطه بالمحول (Switch) كما فعلت في تدريبك العملي[span_1](start_span)[span_1](end_span).
+### 1. De Patchkast (خزانة الشبكات المركزية)
+* **Het Patchpaneel:** Dit is een passief doorgeefluik. Kabels uit de muur (Wall Outlets) van kantoren komen hierin samen. Het organiseert de chaos van kabels. (لوحة التوزيع هي نقطة تجميع سلبية، تأتي إليها الكابلات الممتدة داخل جدران المبنى لتنظيمها قبل ربطها بالأجهزة الذكية).
+* **De Switch (المحول):** Het actieve hart van het LAN. Verbindt alle apparaten met elkaar met behulp van korte patchkabels vanaf het patchpaneel. 
 
-### 2. Hub vs Switch (De misleidende stelling)
-* **Stelling in examen:** "Een Hub maakt gebruik van MAC adressen... en een Switch kijkt niet naar de zender en ontvanger."
-* **Antwoord (الإجابة):** **ONWAAR (FALSE / خطأ تماماً)**. Het is precies andersom!
-* **Why? (لماذا؟):** 
-  * **EN:** A Switch is smart; it uses a MAC address table to send data *only* to the correct recipient. A Hub is dumb; it broadcasts data to everyone.
-  * **AR:** المحول (Switch) ذكي لأنه يحفظ عناوين הـ MAC ليرسل البيانات للجهاز المقصود فقط، بينما الـ Hub غبي يرسل البيانات لجميع المنافذ (وهذا ما تعلمته عند تصميم مخطط الشبكة في Visio).
-
-### 3. Wat is de primaire functie van een firewall?
-* **Antwoord (الإجابة):** Het filteren en blokkeren van inkomend en uitgaand netwerkverkeer op basis van veiligheidsregels.
-* **Why? (لماذا؟):** 
-  * **EN:** It acts as a security guard between the internal LAN and the external internet, stopping unauthorized access.
-  * **AR:** تعمل كحارس أمن يفحص البيانات الداخلة والخارجة، وتمنع المتسللين من دخول الشبكة الداخلية.
-
-### 4. Welke kabel gebruik je in welke situatie?
-* **Antwoord (الإجابة):** 
-  * **UTP (Koper):** Voor LAN verbindingen binnen een gebouw (tot 100 meter).
-  * **Glasvezel (Fiber):** Voor lange afstanden en extreem hoge snelheden tussen gebouwen of servers.
-* **Why? (لماذا؟):** 
-  * **AR:** كابلات النحاس (UTP) رخيصة وممتازة للمكاتب، بينما الألياف الضوئية (Fiber) تنقل البيانات بسرعة الضوء لمسافات طويلة دون فقدان الإشارة.
+### 2. Bekabeling (أنواع الكابلات)
+* **UTP (Unshielded Twisted Pair):** Koperkabels (Copper). Gebruikt voor werkplekken binnen een gebouw. Maximale lengte is 100 meter. (كابلات النحاس المجدولة، ممتازة للمسافات القصيرة داخل نفس المبنى).
+* **Glasvezel (Fiber Optic):** Gebruikt licht in plaats van elektriciteit. Extreem snel, immuun voor storingen, en gebruikt om switches of gebouwen over lange afstanden te verbinden. (الألياف الضوئية، تنقل البيانات عبر الضوء. نستخدمها لربط السيرفرات ببعضها أو ربط مبنيين لتجنب فقدان الإشارة).
 
 ---
 
-## 📡 DEEL 2: Protocollen & IP-Configuratie (البروتوكولات والعناوين)
+## 🧠 THEMA 2: Apparatuur & Logica (الأجهزة والمنطق الشبكي)
+Hoe apparaten beslissen waar data heen moet. (كيف تقرر الأجهزة مسار البيانات).
 
-### 5. Wat is een shared folder?
-* **Antwoord (الإجابة):** Een map op een server of PC die toegankelijk is voor meerdere gebruikers in hetzelfde netwerk.
-* **Why? (لماذا؟):** 
-  * **EN:** It allows users to collaborate and share files centrally instead of emailing them.
-  * **AR:** مجلد موجود على الشبكة يسمح للموظفين بتبادل الملفات، تماماً مثل مجلد "Data" الذي أنشأته وشاركته على أجهزة Windows و QNAP NAS.
+### 1. Hub vs. Switch (الفرق بين الغباء والذكاء)
+* **De Hub (Verouderd/Obsolete):** Werkt op **Laag 1**. Hij is 'dom' en stuurt inkomende data simpelweg naar *alle* poorten (Broadcast). Dit veroorzaakt netwerkbotsingen (Collisions).
+* **De Switch (Huidige standaard):** Werkt op **Laag 2**. Hij is 'slim' en kijkt naar het **MAC-adres** (het fysieke adres van de netwerkkaart). Hij stuurt de data *alleen* naar de poort waar de ontvanger zit. (المحول ذكي لأنه يمتلك جدولاً بأسماء الأجهزة (MAC Table) ويرسل البيانات للمستلم المعني فقط، مما يوفر سرعة هائلة وأماناً).
 
-### 6. Wat is het doel van het tooltje Ping?
-* **Antwoord (الإجابة):** Controleren of een ander apparaat op het netwerk bereikbaar is (Connectiviteit testen) en de reactietijd meten.
-* **Why? (لماذا؟):** 
-  * **AR:** يرسل حزم بيانات صغيرة وينتظر الرد ليتأكد من وجود اتصال، كما استخدمته لفحص الوصول إلى سيرفر الـ FTP وعناوين الأجهزة الأخرى[span_2](start_span)[span_2](end_span).
+### 2. De Router & Default Gateway (الموجه والبوابة الافتراضية)
+* Werkt op **Laag 3**. Een router verbindt verschillende netwerken met elkaar (bijv. jouw LAN met het internet WAN).
+* **De Default Gateway:** Dit is het IP-adres van de router (bijv. `172.16.0.1`). Als een PC data naar Google wil sturen, en ziet dat Google niet in het lokale netwerk zit, gooit hij de data naar de "Gateway" (de router), die het pad naar buiten kent. (البوابة الافتراضية هي عنوان الروتر. أي بيانات تخرج من شبكتك الداخلية إلى الإنترنت يجب أن تمر عبر هذه البوابة).
 
-### 7. Wat zijn andere namen voor het MAC address?
-* **Antwoord (الإجابة):** Hardware address (Hardware adres) of Physical address (Fysiek adres).
-* **Why? (لماذا؟):** 
-  * **AR:** لأنه عنوان محفور فيزيائياً داخل كارت الشبكة (NIC) من قِبل المصنع ولا يمكن تغييره بسهولة، عكس عنوان الـ IP الذي يتغير.
-
-### 8. Welk onderdeel van een IP configuratie geeft aan wat het adres van de router is?
-* **Antwoord (الإجابة):** De **Default Gateway (Standaardgateway)**.
-* **Why? (لماذا؟):** 
-  * **AR:** البوابة الافتراضية هي عنوان الروتر الذي يأخذ بياناتك من الشبكة الداخلية ويخرجها للإنترنت (مثل العنوان 172.16.0.1 الذي قمت بضبطه في التدريب)[span_3](start_span)[span_3](end_span).
-
-### 9. Welke IP adressen mag je gebruiken in een LAN omgeving?
-* **Antwoord (الإجابة):** Private IP adressen (Privé-adressen).
-* **Why? (لماذا؟):** 
-  * **EN:** Ranges like 192.168.x.x, 172.16.x.x, or 10.x.x.x are reserved for local networks and cannot be routed on the public internet.
-  * **AR:** عناوين خاصة لا تظهر على الإنترنت، مثل العناوين (192.168.1.10 و 172.16.0.10) التي أعددتها في مختبراتك السابقة[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span).
-
-*(Opmerking voor foto-vragen: Een afbeelding van een router toont meestal Switch-poorten, een WAN-poort, en Wi-Fi antennes. Een server-dienst afbeelding toont vaak DHCP voor automatische IP's, of DNS voor het omzetten van namen naar IP's).*
-
----
-
-## 🥞 DEEL 3: Het OSI Model (نموذج OSI للشبكات)
-Het OSI model helpt IT'ers om netwerkproblemen stap voor stap te isoleren. (نموذج وهمي من 7 طبقات يساعد المهندس على تحديد مكان العطل).
-
-1. **Laag 1: Physical (Fysieke laag) ➔ Bits**
-   * **Wat past hierbij?** Kabels (UTP, Fiber), Hubs, en elektrische signalen (0 en 1).
-   * **AR:** الطبقة الفيزيائية (الكابلات، المحولات القديمة Hubs، والإشارات الكهربائية).
-2. **Laag 2: Data Link (Datalinklaag) ➔ Frames**
-   * **Wat past hierbij?** MAC-adressen en Switches. 
-   * **AR:** طبقة ربط البيانات (هنا تعمل المحولات ذكية Switches وعناوين الـ MAC).
-3. **Laag 3: Network (Netwerklaag) ➔ Packets**
-   * **Wat past hierbij?** IP-adressen en Routers. 
-   * *(Antwoord op examenvraag: Op Laag 3 wordt het IP-adres toegevoegd aan een datapakket).*
-   * **AR:** طبقة الشبكة (هنا يتم إضافة عنوان الـ IP لحزمة البيانات، وهنا يعمل الروتر).
-4. **Laag 4: Transport (Transportlaag) ➔ Segments**
-   * **Wat past hierbij?** TCP (betrouwbaar) en UDP (snel, voor video/gaming).
-5. **Laag 5: Session (Sessielaag)**
-   * **Wat past hierbij?** Het opbouwen en afsluiten van de verbinding.
-6. **Laag 6: Presentation (Presentatielaag)**
-   * **Wat past hierbij?** Encryptie (SSL/TLS) en data-opmaak (JPEG, ASCII).
-7. **Laag 7: Application (Applicatielaag)**
-   * **Wat past hierbij?** Wat de gebruiker ziet: HTTP (Web), FTP (Bestanden), SMTP (Email).
+### 3. De Firewall (جدار الحماية)
+* De beveiliger van het netwerk. Hij inspecteert al het inkomende en uitgaande verkeer (Data Packets) en blokkeert hackers of ongewenste poorten op basis van veiligheidsregels (Access Control Lists). (شرطي المرور الأمني؛ يفحص كل حزمة بيانات ويقرر هل يُسمح لها بالدخول لل
+*
