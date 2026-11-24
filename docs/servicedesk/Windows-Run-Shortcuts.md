@@ -1,37 +1,41 @@
-# ⚡ Windows Run (`Win + R`) Snelkoppelingen
-*(Windows Run Shortcuts / اختصارات نافذة التشغيل السريع)*
+# ⚡ Windows Run (`Win + R`) — Prioriteit & Praktijk
+*(Most Used Run Shortcuts Ranked by Priority / اختصارات التشغيل مرتبة حسب الأهمية والاستخدام اليومي)*
 
-**Doel (الهدف):** 
-Direct toegang krijgen tot systeemtools zonder te zoeken in Windows-menu's. (الوصول المباشر لأدوات النظام دون البحث في قوائم ويندوز المتغيرة).
-
-**Architectuur (النمط البرمجي):**
-* `.cpl` = Control Panel (لوحة التحكم الكلاسيكية)
-* `.msc` = Microsoft Management Console (أدوات إدارة النظام العميقة)
-* `shell:` / `%...%` = Systeemmappen (مجلدات النظام المخفية)
+**Doel:** De snelste weg naar systeemtools zonder te verdwalen in Windows-menu's, gesorteerd op hoe vaak je ze echt nodig hebt.
 
 ---
 
-## 🛠️ 1. Systeem & Hardware (النظام والعتاد)
-| Commando | NL / EN Naam | Gebruik (الاستخدام الميداني) |
-| :--- | :--- | :--- |
-| **`sysdm.cpl`** | Systeemeigenschappen / System Properties | PC-naam wijzigen, Domain Join, en **Herstelpunten** (نقاط الاستعادة). |
-| **`devmgmt.msc`** | Apparaatbeheer / Device Manager | Drivers controleren en hardwarefouten (zoals Code 10) oplossen. |
-| **`diskmgmt.msc`** | Schijfbeheer / Disk Management | Partities beheren, schijven formatteren of schijfletters wijzigen. |
-| **`eventvwr.msc`** | Logboeken / Event Viewer | Foutmeldingen en BSOD-crashes analyseren. |
-| **`services.msc`** | Services | Vastgelopen diensten herstarten (bijv. *Print Spooler* voor printers). |
-| **`msinfo32`** | Systeeminformatie / System Info | Volledig overzicht van moederbord, BIOS-versie en hardware. |
+## 🔥 Niveau 1: Dagelijkse Top 5 (أهم 5 أوامر ستستخدمها باستمرار)
+Deze 5 commando's lossen 80% van de standaard werkplek-vragen op:
 
-## 🌐 2. Netwerk & Remote (الشبكة والوصول عن بُعد)
-| Commando | NL / EN Naam | Gebruik (الاستخدام الميداني) |
-| :--- | :--- | :--- |
-| **`ncpa.cpl`** | Netwerkverbindingen / Network Connections | Snel IP-adres en DNS aanpassen op netwerkkaarten. |
-| **`mstsc`** | Extern bureaublad / Remote Desktop | Verbinding maken met een andere PC of server (RDP). |
-| **`wf.msc`** | Windows Firewall | Geavanceerde firewallregels (inkomend/uitgaand) beheren. |
+| Prioriteit | Commando | NL Naam | Wanneer gebruik je dit? (متى تستخدمه؟) |
+| :--- | :--- | :--- | :--- |
+| **1** | **`ncpa.cpl`** | Netwerkverbindingen | Geen internet, IP/DNS handmatig instellen, of netwerkkaart uit/inschakelen. |
+| **2** | **`devmgmt.msc`** | Apparaatbeheer | Geel uitroepteken (driver fout), camera/audio/USB werkt niet. |
+| **3** | **`services.msc`** | Services | Printer loopt vast (*Print Spooler* herstarten) of een programma reageert niet. |
+| **4** | **`appwiz.cpl`** | Programma's en onderdelen | Software snel verwijderen of controleren welke versie geïnstalleerd is. |
+| **5** | **`mstsc`** | Extern bureaublad (RDP) | Overnemen van een andere PC of inloggen op een server op afstand. |
 
-## 🧹 3. Onderhoud & Mappen (الصيانة والمجلدات)
-| Commando | NL / EN Naam | Gebruik (الاستخدام الميداني) |
+---
+
+## 🛠️ Niveau 2: Systeem & Onderhoud (المستوى الثاني: الصيانة وإدارة النظام)
+Handig bij nieuwe installaties, schijfruimte of het terugzetten van instellingen:
+
+| Commando | NL Naam | Wanneer gebruik je dit? (متى تستخدمه؟) |
 | :--- | :--- | :--- |
-| **`appwiz.cpl`** | Programma's en onderdelen | Software snel verwijderen via het klassieke configuratiescherm. |
-| **`rstrui`** | Systeemherstel / System Restore | Windows terugzetten naar een eerder herstelpunt. |
-| **`shell:startup`** | Opstartmap / Startup Folder | Programma's beheren die automatisch starten met Windows. |
-| **`%temp%`** | Tijdelijke bestanden | Tijdelijke gebruikersbestanden handmatig opschonen. |
+| **`sysdm.cpl`** | Systeemeigenschappen | Computernaam aanpassen, lid maken van een *Domain*, en **Herstelpunten** aanzetten. |
+| **`diskmgmt.msc`** | Schijfbeheer | Nieuwe USB-stick of harde schijf formatteren en een schijfletter geven. |
+| **`rstrui`** | Systeemherstel | Windows terugzetten naar een werkend moment vóór een foute update. |
+| **`msinfo32`** | Systeeminformatie | Snel specificaties uitlezen (moederbord, BIOS-versie, RAM) voor een ticket. |
+
+---
+
+## 🔍 Niveau 3: Diepgaande Diagnose & Mappen (للفحص العميق والمجلدات المخفية)
+Gebruik deze pas als de standaard stappen het probleem niet oplossen:
+
+| Commando | NL Naam | Wanneer gebruik je dit? (متى تستخدمه؟) |
+| :--- | :--- | :--- |
+| **`eventvwr.msc`** | Logboeken | Zoeken naar kritieke fouten (`Kernel-Power`, `Application Error`, BSOD). |
+| **`shell:startup`** | Opstartmap | Zien welke programma's automatisch opstarten (of een eigen script toevoegen). |
+| **`%temp%`** | Tijdelijke bestanden | Vastgelopen installatiebestanden of cache handmatig opruimen. |
+| **`wf.msc`** | Windows Firewall | Controleren of de firewall een specifieke poort of applicatie blokkeert. |

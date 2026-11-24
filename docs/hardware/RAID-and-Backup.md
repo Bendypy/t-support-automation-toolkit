@@ -33,3 +33,15 @@
 * **RAID 10 (RAID 1 + 0 — Snelheid + Redundantie):**
   * **Minimaal:** 4 schijven.
   * **Werking:** Combineert de snelheid van RAID 0 met de veiligheid van RAID 1.
+  ---
+
+## 🔄 3. Back-up Methoden (أنواع النسخ الاحتياطي)
+
+| Methode | Wat wordt gekopieerd? | Snelheid & Opslag (التخزين) | Herstel / Restore (الاستعادة) |
+| :--- | :--- | :--- | :--- |
+| **Volledig** *(Full)* | Alle geselecteerde data. | Traagst & meeste opslagruimte. | **Eenvoudig:** slechts 1 set nodig. |
+| **Incrementeel** | Alle wijzigingen sinds de **vorige** back-up (ongeacht type). | **Snelst** & minste opslagruimte. | **Complex:** Volledige set + *alle* tussentijdse sets nodig. |
+| **Differentieel** | Alle wijzigingen sinds de **laatste volledige** back-up. | Groeit elke dag in grootte. | **Sneller:** Laatste volledige set + alleen de laatste differentiële set. |
+
+> **Architectuur-notitie (`Block-level back-up`):**
+> *Block-level back-up* kopieert alleen de gewijzigde datablokken binnen een bestand (bijv. bij grote VM-bestanden). Dit is een onderliggende **techniek**, geen aparte bewaarmethode.
